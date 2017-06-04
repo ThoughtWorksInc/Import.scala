@@ -26,9 +26,9 @@ final class Import(override val global: Global) extends Plugin {
       import global._
 
       final class UriFile(uri: URI, override val isDirectory: Boolean) extends AbstractFile {
-        override def file: File = new File(path)
+        override def file: File = null
 
-        override lazy val name: String = file.getName
+        override lazy val name: String = new File(path).getName
 
         override lazy val path: String = uri.getPath
 
