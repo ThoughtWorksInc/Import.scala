@@ -10,11 +10,11 @@ addCompilerPlugin("com.thoughtworks.import" %% "import" % "latest.release")
 
 ## Magic Imports
 This plugin provides a set of magic imports that let you load additional
-code into a REPL session: these are imports which start with a `$`.
+code into a Scala source file: these are imports which start with a `$`.
 
 ### `import $file`
      
-This lets you load **Scala Scripts** into the REPL. For
+This lets you load **Scala Scripts** into current source file. For
 example given a small script defining one value we want
 
 ```scala
@@ -22,7 +22,7 @@ example given a small script defining one value we want
 val elite = 31337
 ```
 
-We can load it into our REPL session using:
+We can load it into our current source file using:
 
 ```scala
 import $file.MyScript
