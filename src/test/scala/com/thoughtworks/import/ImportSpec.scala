@@ -7,13 +7,11 @@ import org.scalatest.{FreeSpec, Matchers}
   */
 class ImportSpec extends FreeSpec with Matchers {
 
-  "import a file in a relative path" - {
+  "import a file in a relative path" in {
     import $file.Importee
 
-    "Then the content of the file should be defined in an object" in {
-      Importee.j should be(42)
-      Importee should be(a[Singleton])
-    }
+    Importee.j should be(42)
+    Importee should be(a[Singleton])
   }
 
   "import a file with renaming" in {
