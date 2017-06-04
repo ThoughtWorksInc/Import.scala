@@ -30,6 +30,13 @@ class ImportSpec extends FreeSpec with Matchers {
       be(a[Singleton])
   }
 
+  "import an URL using dot" in {
+    import $file.`https://gist.github.com`.Atry.`5dcb1414b804fd7679393cacac3c89fc`.raw.`5b1748ab6b45c00be0109686fdb25e85cde11ce0`.`include-example`
+
+    `include-example`.i should be(42)
+    `include-example` should be(a[Singleton])
+  }
+
   "import an URL with renaming" in {
     import $file.{
       `https://gist.github.com/Atry/5dcb1414b804fd7679393cacac3c89fc/raw/5b1748ab6b45c00be0109686fdb25e85cde11ce0/include-example.sc` => Renamed

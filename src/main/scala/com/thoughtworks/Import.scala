@@ -21,7 +21,7 @@ final class Import(override val global: Global) extends Plugin {
       override val global: Global = Import.this.global
       import global._
 
-      private final class UriFile(uri: URI, override val isDirectory: Boolean) extends AbstractFile {
+      private final class UriFile(uri: URI) extends AbstractFile {
         override def file: File = null
 
         override lazy val name: String = new File(path).getName
@@ -31,7 +31,7 @@ final class Import(override val global: Global) extends Plugin {
         override def absolute: AbstractFile = this
 
         override def container: AbstractFile = {
-          new UriFile(uri.resolve("..").normalize, true)
+          new UriFile(uri.resolve("..").normalize)
         }
 
         override def create(): Unit = unsupported()
@@ -49,8 +49,10 @@ final class Import(override val global: Global) extends Plugin {
         override def lookupName(name: String, directory: Boolean): AbstractFile = unsupported()
 
         override def lookupNameUnchecked(name: String, directory: Boolean): AbstractFile = {
-          new UriFile(uri.resolve(name), directory)
+          new UriFile(uri.resolve(if (directory) { name + '/' } else { name }))
         }
+
+        override def isDirectory: Boolean = path.endsWith("/")
       }
 
       override val phaseName: String = Import.this.name
@@ -77,7 +79,7 @@ final class Import(override val global: Global) extends Plugin {
                   warning(position.withShift(renamePos), "Renaming is ignored when importing $exec")
                 }
                 val uriString = s"${importee.decodedName.toString}.sc"
-                val uri = prefix.lookupPathUnchecked(uriString, directory = false)
+                val uri = prefix.lookupNameUnchecked(uriString, directory = false)
                 execStats(uri)
               }
 
@@ -93,7 +95,7 @@ final class Import(override val global: Global) extends Plugin {
                     case q"${UrlPrefix(handler, prefix)}.`..`" =>
                       Some(handler -> prefix.container)
                     case q"${UrlPrefix(handler, prefix)}.$name" =>
-                      Some(handler -> prefix.lookupPathUnchecked(name.decodedName.toString, directory = true))
+                      Some(handler -> prefix.lookupNameUnchecked(name.decodedName.toString, directory = true))
                     case _ =>
                       None
                   }
@@ -104,20 +106,20 @@ final class Import(override val global: Global) extends Plugin {
                 val uriString = name.decodedName.toString
                 val uri = new URI(uriString)
                 val virtualFile = if (uri.isAbsolute) {
-                  new UriFile(uri, false)
+                  new UriFile(uri)
                 } else {
-                  unit.source.file.container.lookupPathUnchecked(raw"""$uriString.sc""", directory = false)
+                  unit.source.file.container.lookupNameUnchecked(raw"""$uriString.sc""", directory = false)
                 }
                 virtualFile
               }
 
               private def newVirtualDirectory(name: Name) = {
                 val uriString = name.decodedName.toString
-                val uri = new URI(uriString)
+                val uri = new URI(uriString :+ '/')
                 val virtualFile = if (uri.isAbsolute) {
-                  new UriFile(uri, true)
+                  new UriFile(uri)
                 } else {
-                  unit.source.file.container.lookupPathUnchecked(uriString, directory = true)
+                  unit.source.file.container.lookupNameUnchecked(uriString, directory = true)
                 }
                 virtualFile
               }
