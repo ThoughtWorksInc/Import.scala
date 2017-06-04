@@ -115,7 +115,7 @@ import $exec.`https://gist.github.com/Atry/5dcb1414b804fd7679393cacac3c89fc/raw/
 assert(i == 42)
 ```
 
-## LICENSE
+## Acknowledgements
 
 The examples in this README.md file is based on Li Haoyi's [Ammonite document](http://www.lihaoyi.com/Ammonite/#MagicImports) and copyright licensed under MIT. See the [Markdown source](https://github.com/ThoughtWorksInc/import.scala/raw/master/README.md).
 
