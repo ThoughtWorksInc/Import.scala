@@ -15,15 +15,15 @@ import scala.tools.nsc.transform.Transform
 /**
   * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
   */
-final class ImportUrl(override val global: Global) extends Plugin {
+final class Url(override val global: Global) extends Plugin {
 
   override val name: String = "import-url"
 
   override val components: List[PluginComponent] = List(
     new PluginComponent {
-      override val global: Global = ImportUrl.this.global
+      override val global: Global = Url.this.global
       import global._
-      override val phaseName: String = ImportUrl.this.name
+      override val phaseName: String = Url.this.name
       override val runsAfter: List[String] = List("parser")
 
       override def newPhase(prev: Phase): Phase = {

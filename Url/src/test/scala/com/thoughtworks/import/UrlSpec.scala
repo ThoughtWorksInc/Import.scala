@@ -5,7 +5,7 @@ import org.scalatest.{FreeSpec, Matchers}
 /**
   * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
   */
-class ImportUrlSpec extends FreeSpec with Matchers {
+class UrlSpec extends FreeSpec with Matchers {
 
   "When importing a Scala file from an URL" - {
     import $url.{

@@ -1,4 +1,0 @@
-<plugin>
-    <name>import-url</name>
-    <classname>com.thoughtworks.import.ImportUrl</classname>
-</plugin>
