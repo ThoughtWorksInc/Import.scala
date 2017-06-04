@@ -1,4 +1,4 @@
-package com.thoughtworks.`import`
+package com.thoughtworks
 
 import org.scalatest.{FreeSpec, Matchers}
 

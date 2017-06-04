@@ -1,17 +1,13 @@
-package com.thoughtworks.`import`
+package com.thoughtworks
 
 import java.io._
-import java.net.{URI, URL}
-import java.nio.file.Paths
+import java.net.URI
 
-import scala.collection.mutable
-import scala.reflect.api.Trees
 import scala.reflect.internal.NoPhase
 import scala.reflect.internal.util.BatchSourceFile
-import scala.reflect.io.{AbstractFile, VirtualFile}
-import scala.tools.nsc.{Global, Phase}
+import scala.reflect.io.AbstractFile
 import scala.tools.nsc.plugins.{Plugin, PluginComponent}
-import scala.tools.nsc.transform.Transform
+import scala.tools.nsc.{Global, Phase}
 
 /**
   * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
