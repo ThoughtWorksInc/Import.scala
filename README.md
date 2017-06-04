@@ -14,7 +14,7 @@ code into a REPL session: these are imports which start with a `$`.
 
 ### `import $file`
      
-This lets you load @sect.ref{Scala Scripts} into the REPL. For
+This lets you load **Scala Scripts** into the REPL. For
 example given a small script defining one value we want
 
 ```scala
