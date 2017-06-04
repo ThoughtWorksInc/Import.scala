@@ -31,7 +31,11 @@ final class Import(override val global: Global) extends Plugin {
         override def absolute: AbstractFile = this
 
         override def container: AbstractFile = {
-          new UriFile(uri.resolve("..").normalize)
+          if (isDirectory) {
+            new UriFile(uri.resolve("..").normalize)
+          } else {
+            new UriFile(uri.resolve(".").normalize)
+          }
         }
 
         override def create(): Unit = unsupported()
