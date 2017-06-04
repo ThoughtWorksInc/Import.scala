@@ -222,5 +222,5 @@ final class Import(override val global: Global) extends Plugin {
 
     }
   )
-  override val description: String = "Enable magic import"
+  override val description: String = "Enable magic imports"
 }
