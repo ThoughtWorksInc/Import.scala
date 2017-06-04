@@ -5,7 +5,7 @@ import org.scalatest.{FreeSpec, Matchers}
 /**
   * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
   */
-class UrlSpec extends FreeSpec with Matchers {
+class ImportSpec extends FreeSpec with Matchers {
 
   "import a file in a relative path" - {
     import $file.Importee

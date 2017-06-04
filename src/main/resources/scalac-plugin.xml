@@ -1,0 +1,4 @@
+<plugin>
+    <name>magic-import</name>
+    <classname>com.thoughtworks.import.Import</classname>
+</plugin>
