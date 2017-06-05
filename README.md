@@ -111,7 +111,7 @@ import $file._ // doesn't work
 ```
 ### `import $exec`
         
-This is similar to `import $file`, except that it dumps the definitions and imports from the script into your current source file session.
+This is similar to `import $file`, except that it dumps the definitions and imports from the script into your current source file.
 This is useful if you are using a script to hold a set of common imports.
 
 ```scala
