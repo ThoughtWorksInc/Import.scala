@@ -17,7 +17,7 @@ The syntax is similar to [magic imports in Ammonite](http://www.lihaoyi.com/Ammo
 
 ### `import $file`
      
-This lets you load **Scala Scripts** into current source file. For
+This lets you load code snippets into current source file. For
 example given a small script defining one value we want
 
 ```scala
