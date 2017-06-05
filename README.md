@@ -42,14 +42,14 @@ Or if the script is in an *outer* folder,
 import $file.`..`.MyScript
 ```
 
-Or if we want to import the contents of the script in one go:
+Or if you want to import the contents of the script in one go:
 
 ```scala
 import $file.MyScript, MyScript._
 assert(elite == 31337)
 ```
 
-Or if we want to download the script from a website:
+Or if you want to download the script from a website:
 
 ```scala
 import $file.`https://gist.github.com/Atry/5dcb1414b804fd7679393cacac3c89fc/raw/5b1748ab6b45c00be0109686fdb25e85cde11ce0/include-example.sc`
@@ -66,7 +66,7 @@ assert(`include-example`.i == 42)
 While this is a trivial example, your `MyScript.sc` file can
 contain anything you want, not just `val`s: function
 `def`s, `class`es `object`s or
-`trait`s, or imports from *other* scripts.
+`trait`s, or `import`s from *other* scripts.
 
 
 #### Cannot directly import from inside a Script
