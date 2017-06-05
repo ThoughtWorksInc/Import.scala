@@ -64,7 +64,7 @@ final class Import(override val global: Global) extends Plugin {
       Seq(urlOrFileModule(uri, rename))
     }
 
-    private def execHandler: Handler = { (prefix: AbstractFile, selector: ImportSelector, position: Position) =>
+    private val execHandler: Handler = { (prefix: AbstractFile, selector: ImportSelector, position: Position) =>
       val ImportSelector(importee, namePos, rename, renamePos) = selector
       if (importee != rename) {
         warning(position.withShift(renamePos), "Renaming is ignored when importing $exec")
