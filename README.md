@@ -1,4 +1,6 @@
-# Import.scala
+# Import.scala <a href="http://thoughtworks.com/"><img align="right" src="https://www.thoughtworks.com/imgs/tw-logo.png" title="ThoughtWorks" height="15"/></a>
+
+[![Build Status](https://travis-ci.org/ThoughtWorksInc/Import.scala.svg?branch=master)](https://travis-ci.org/ThoughtWorksInc/Import.scala)
 
 **Import.scala** is a Scala compiler plugin that enables magic imports.
 
