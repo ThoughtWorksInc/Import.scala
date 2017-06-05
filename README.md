@@ -9,8 +9,11 @@ addCompilerPlugin("com.thoughtworks.import" %% "import" % "latest.release")
 ```
 
 ## Magic Imports
+
 This plugin provides a set of magic imports that let you load additional
 code into a Scala source file: these are imports which start with a `$`.
+
+The syntax is similar to [magic imports in Ammonite](http://www.lihaoyi.com/Ammonite/#MagicImports).
 
 ### `import $file`
      
