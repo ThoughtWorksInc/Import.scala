@@ -79,10 +79,10 @@ final class Import(override val global: Global) extends Plugin {
         selector match {
           case q"${Ident(TermName("$exec"))}.$name" =>
             val virtualFile: AbstractFile = newVirtualDirectory(name)
-            Some(execHandler _ -> virtualFile)
+            Some(execHandler -> virtualFile)
           case q"${Ident(TermName("$url" | "$file"))}.$name" =>
             val virtualFile: AbstractFile = newVirtualDirectory(name)
-            Some(urlOrFileHandler _ -> virtualFile)
+            Some(urlOrFileHandler -> virtualFile)
           case q"${UrlPrefix(handler, prefix)}.`..`" =>
             Some(handler -> prefix.container)
           case q"${UrlPrefix(handler, prefix)}.$name" =>
