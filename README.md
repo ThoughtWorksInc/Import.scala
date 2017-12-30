@@ -119,6 +119,11 @@ cannot use wildcard `._` imports:
 ```scala
 import $file._ // doesn't work
 ```
+
+### `import $url`
+
+`import $url` is an alias to `import $file`.
+
 ### `import $exec`
         
 This is similar to `import $file`, except that it dumps the definitions and imports from the script into your current source file.
